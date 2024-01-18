@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Weathers App</string>
+    <string name="temp">temp</string>
+    <string name="cityname">CityName</string>
+    <string name="body">body</string>
+    <string name="title">title</string>
+    <string name="hello">hello</string>
+    <string name="_20">20</string>
+    <string name="next_7days">Next 7days</string>
+    <string name="today">Today</string>
+    <string name="humidity">Humidity</string>
+    <string name="_18">18%</string>
+    <string name="wind_speed">Wind Speed%</string>
+    <string name="_12km_h">12km/h%</string>
+    <string name="rain">Rain</string>
+    <string name="_22">22%</string>
+    <string name="h_27_l_18">H:27 L:18</string>
+    <string name="_25">25</string>
+    <string name="mon_june_17_10_10am">Mon June 17 | 10:10AM</string>
+    <string name="mostly_cloudy">Mostly Cloudy</string>
+    <string name="country_name">Country Name</string>
+    <string name="name">Name</string>
+    <string name="country">country</string>
+    <string name="state">State</string>
+    <string name="localtime">localtime</string>
+    <string name="observation_time">observation_time</string>
+    <string name="wind">wind</string>
+    <string name="speed">speed</string>
+    <string name="feelslike">feelslike</string>
+    <string name="utc_offset">utc_offset</string>
+    <string name="wind_degree">wind_degree</string>
+    <string name="is_day">is_day</string>
+    <string name="weather_descriptions">weather_descriptions</string>
+</resources>
