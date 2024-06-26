@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView weather_icons;
     TextView names, countrys, regions, localtimes, utc_offsets, observation_times, temp, wind_speeds, wind_degrees, is_days, weather_description, humiditys, feelslikes;
+    private Handler handler = new Handler();  // Handler to post delayed tasks
+    private Runnable weatherQueryRunnable;   // Runnable that executes the API call
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
-                weather("" + s);
+                handler.removeCallbacks(weatherQueryRunnable);
+                // Define the runnable to execute API call
+                weatherQueryRunnable = () -> weather(s.toString());
+                // Schedule the runnable to execute after 800 milliseconds
+                handler.postDelayed(weatherQueryRunnable, 800);
             }
         });
 
@@ -83,11 +89,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void weather(String query) {
-
-
+        Log.d("KAMAL - weather", "Received query: " + query);  // To confirm what is being received
         GetRetroFIt.GetWeather().getCurrentWeather(access_key, query).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                Log.d("KAMAL - CurrentWeather", "ResponseBody: " + response.body().toString());
+
+
                 try {
                     if (response.isSuccessful()) {
 
